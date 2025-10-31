@@ -14,23 +14,7 @@ Each VM runs a complete operating system. Think of it like having multiple separ
 **Containers - The modern way:**
 All containers share the same operating system kernel. They're just isolated processes. Think of it like apartments in a building - they all share the same foundation and utilities, but each has its own space. Light and fast.
 
-```mermaid
-graph TB
-    subgraph "Virtual Machines"
-        A1[Hypervisor] --> B1[VM 1: Full OS]
-        A1 --> C1[VM 2: Full OS]
-        B1 --> D1[App A]
-        C1 --> E1[App B]
-    end
-    
-    subgraph "Containers"
-        A2[Host OS] --> B2[Container Runtime]
-        B2 --> C2[Container 1]
-        B2 --> D2[Container 2]
-        C2 --> E2[App A]
-        D2 --> F2[App B]
-    end
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 ## Why People Think Containers Are Winning
 
@@ -40,12 +24,7 @@ Let me tell you the compelling reasons why containers seem to be taking over:
 
 Here's the amazing thing about containers - they're incredibly small and start instantly! Look at these numbers:
 
-```mermaid
-graph LR
-    A[Resource Usage] --> B[VM: GBs]
-    A --> C[Container: MBs]
-    C --> D[100x Smaller!]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 **Real Numbers:**
 
@@ -62,16 +41,7 @@ graph LR
 
 Containers and microservices are a match made in heaven. Let me show you why:
 
-```mermaid
-graph TB
-    A[E-commerce App] --> B[Container: User Service]
-    A --> C[Container: Product Service]
-    A --> D[Container: Cart Service]
-    A --> E[Container: Payment Service]
-    A --> F[Container: Shipping Service]
-    
-    G[Each Independently Deployable!]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 **Why Containers Win:**
 - ✅ Each microservice in own container
@@ -90,14 +60,7 @@ This is why Netflix, Spotify, and Uber all use containers for their microservice
 
 You know that famous developer excuse "but it works on my machine"? Containers completely solve this problem!
 
-```mermaid
-graph LR
-    A[Developer Laptop] --> B[Same Container]
-    C[Test Server] --> B
-    D[Production] --> B
-    
-    E[Identical Everywhere!]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **The Problem (VMs):**
 ```
@@ -120,15 +83,7 @@ CMD ["node", "server.js"]
 
 Containers make continuous deployment incredibly fast and simple:
 
-```mermaid
-graph LR
-    A[Code Commit] --> B[Docker Build]
-    B --> C[Automated Tests]
-    C --> D[Deploy to K8s]
-    D --> E[Live in Production]
-    
-    F[Minutes, not hours!]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **CI/CD Pipeline:**
 ```yaml
@@ -155,18 +110,7 @@ That's 2 minutes with containers versus 17 minutes with VMs! Imagine deploying 1
 
 Kubernetes orchestration gives you superpowers for managing containers:
 
-```mermaid
-graph TB
-    A[Kubernetes] --> B[Auto-scaling]
-    A --> C[Self-healing]
-    A --> D[Load Balancing]
-    A --> E[Rolling Updates]
-    
-    B --> F[Deploy 1000s of Containers]
-    C --> F
-    D --> F
-    E --> F
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 **Example: Black Friday Traffic**
 ```
@@ -182,12 +126,7 @@ Automatic, no human intervention!
 
 The numbers speak for themselves:
 
-```mermaid
-graph LR
-    A[Physical Server] --> B[VMs: Run 20]
-    A --> C[Containers: Run 200]
-    C --> D[90% Cost Reduction!]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 **Real Example:**
 ```
@@ -219,34 +158,11 @@ Now here's the other side of the story - and it's all about SECURITY!
 
 This is the BIG difference! VMs provide hardware-level isolation, containers only provide process-level isolation.
 
-```mermaid
-graph TB
-    subgraph "Virtual Machines"
-        A[VM 1] -.->|Full Isolation| B[VM 2]
-        A --> C[Own Kernel]
-        B --> D[Own Kernel]
-        C --> E[Hardware-Level Isolation]
-        D --> E
-    end
-    
-    subgraph "Containers"
-        F[Container 1] -.->|Shared Kernel| G[Container 2]
-        F --> H[Same OS Kernel]
-        G --> H
-        H --> I[Process-Level Isolation]
-    end
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **The Problem with Containers:**
 
-```mermaid
-graph TD
-    A[All Containers Share Kernel] --> B{Kernel Exploited?}
-    B -->|Yes| C[All Containers Compromised!]
-    
-    D[Each VM Has Own Kernel] --> E{One Kernel Exploited?}
-    E -->|Yes| F[Only That VM Affected]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 **Real Attack:** If an attacker escapes a container, they get access to the shared kernel - that means they can potentially access ALL other containers on that host. Game over!
 
@@ -258,12 +174,7 @@ Let me share actual security breaches that happened with containers:
 
 #### Case 1: runC Vulnerability (CVE-2019-5736)
 
-```mermaid
-graph LR
-    A[Container Escape] --> B[Attacker Gains Root]
-    B --> C[Access Host System]
-    C --> D[Compromise All Containers]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **What Happened:**
 - Bug in Docker/runC
@@ -275,13 +186,7 @@ graph LR
 
 **Another Example - Dirty COW:**
 
-```mermaid
-graph TD
-    A[Linux Kernel Bug] --> B[Containers Share Kernel]
-    B --> C[All Containers Vulnerable]
-    
-    D[VMs Have Separate Kernels] --> E[Isolated Exposure]
-```
+![Generated Mermaid Diagram 11](diagram_images/diagram_11.png)
 
 **Impact:**
 - With containers: ALL containers affected because they share the kernel
@@ -293,17 +198,7 @@ These real incidents show why security teams prefer VMs!
 
 Here's why cloud providers like AWS, Azure, and Google Cloud use VMs for customer isolation:
 
-```mermaid
-graph TB
-    subgraph "Cloud Provider Dilemma"
-        A[Customer A] --> B{Same Physical Server}
-        C[Customer B] --> B
-        
-        B --> D{Containers or VMs?}
-        D -->|Containers| E[Higher Risk]
-        D -->|VMs| F[Lower Risk]
-    end
-```
+![Generated Mermaid Diagram 12](diagram_images/diagram_12.png)
 
 **Why Cloud Providers Use VMs:**
 
@@ -321,17 +216,7 @@ This is why when you rent a cloud server, you're getting a VM, not a container!
 
 ### Fourth: Compliance and Regulations Love VMs
 
-```mermaid
-graph LR
-    A[Banking App] --> B{Security Requirements}
-    B --> C[HIPAA]
-    B --> D[PCI-DSS]
-    B --> E[SOC 2]
-    
-    C --> F[VMs Often Required]
-    D --> F
-    E --> F
-```
+![Generated Mermaid Diagram 13](diagram_images/diagram_13.png)
 
 **Why Regulations Prefer VMs:**
 - ✅ Proven security track record
@@ -348,20 +233,7 @@ If you're building a banking app or healthcare system, auditors will be much hap
 
 ### Fifth: Defense in Depth - Extra Security Layers
 
-```mermaid
-graph TB
-    A[Application] --> B[Container]
-    B --> C[Shared Kernel]
-    C --> D[Hypervisor]
-    D --> E[Hardware]
-    
-    F[VM Approach] --> G[Application]
-    G --> H[VM Kernel]
-    H --> I[Hypervisor]
-    I --> J[Hardware]
-    
-    K[Extra Security Layer!]
-```
+![Generated Mermaid Diagram 14](diagram_images/diagram_14.png)
 
 **Security Layers:**
 - **Containers:** App → Namespace → Kernel (3 layers)
@@ -371,20 +243,7 @@ graph TB
 
 ### Sixth: Operating System Flexibility
 
-```mermaid
-graph TB
-    A[Application Needs] --> B[Windows]
-    A --> C[Specific Linux Kernel]
-    A --> D[Legacy OS]
-    
-    E[Containers] -.->|Can't Handle| B
-    E -.->|Limited| C
-    E -.->|No| D
-    
-    F[VMs] -->|Can Run| B
-    F -->|Can Run| C
-    F -->|Can Run| D
-```
+![Generated Mermaid Diagram 15](diagram_images/diagram_15.png)
 
 **Example:** Need to run a Windows app and a Linux app on the same physical server?
 - **VMs:** Yes, easily! Each VM can run a different OS
@@ -396,40 +255,13 @@ VMs give you much more flexibility when you have diverse OS requirements.
 
 So here's the truth - the answer isn't "containers OR VMs" - it's "containers AND VMs"! Let me explain the hybrid approach that everyone is actually using:
 
-```mermaid
-graph TB
-    A[Modern Infrastructure] --> B[VMs for Isolation]
-    A --> C[Containers in VMs]
-    
-    B --> D[Customer Boundary]
-    C --> E[Application Deployment]
-    
-    D --> F[Security]
-    E --> G[Flexibility]
-    
-    F --> H[Best of Both Worlds!]
-    G --> H
-```
+![Generated Mermaid Diagram 16](diagram_images/diagram_16.png)
 
 ### The Winning Pattern: Containers Inside VMs
 
 This is what AWS, Azure, and Google Cloud actually do - and it's brilliant!
 
-```mermaid
-graph TB
-    A[Physical Server] --> B[Hypervisor]
-    B --> C[VM: Customer A]
-    B --> D[VM: Customer B]
-    
-    C --> E[Kubernetes in VM]
-    E --> F[Container 1]
-    E --> G[Container 2]
-    E --> H[Container 3]
-    
-    D --> I[Kubernetes in VM]
-    I --> J[Container 1]
-    I --> K[Container 2]
-```
+![Generated Mermaid Diagram 17](diagram_images/diagram_17.png)
 
 **Why This Works:**
 - ✅ VMs provide strong isolation between customers (security!)
@@ -440,12 +272,7 @@ This is the best of both worlds! It's like having a secure building (VM) with fl
 
 ### New Technologies: Secure Containers
 
-```mermaid
-graph LR
-    A[Kata Containers] --> B[Each Container Gets Lightweight VM]
-    B --> C[VM-Level Isolation]
-    C --> D[Container-Like Experience]
-```
+![Generated Mermaid Diagram 18](diagram_images/diagram_18.png)
 
 **Technologies:**
 - **Kata Containers:** Each container gets its own lightweight VM - VM security with container speed!
@@ -460,14 +287,7 @@ Let me show you how actual companies solve this problem:
 
 ### Netflix: Hybrid Approach
 
-```mermaid
-graph TB
-    A[Netflix] --> B[AWS EC2 VMs]
-    B --> C[Docker Containers Inside]
-    
-    C --> D[Microservices]
-    D --> E[Titus: Container Platform]
-```
+![Generated Mermaid Diagram 19](diagram_images/diagram_19.png)
 
 **Why Netflix Does This:**
 - Uses VMs for customer/team isolation and security
@@ -478,12 +298,7 @@ They're not choosing one over the other - they're using both!
 
 ### Stripe: Pure VMs for Maximum Security
 
-```mermaid
-graph LR
-    A[Stripe: Payment Processing] --> B[VMs Only]
-    B --> C[Security Critical]
-    C --> D[PCI Compliance]
-```
+![Generated Mermaid Diagram 20](diagram_images/diagram_20.png)
 
 **Decision:** Security is more important than convenience when you're handling billions of dollars in transactions!
 
@@ -491,12 +306,7 @@ Stripe chose VMs because payment processing requires the absolute highest securi
 
 ### Google: All-In on Containers (But With a Catch)
 
-```mermaid
-graph LR
-    A[Google Internal] --> B[Everything in Containers]
-    B --> C[2B+ containers/week]
-    C --> D[But: Own Infrastructure]
-```
+![Generated Mermaid Diagram 21](diagram_images/diagram_21.png)
 
 **Why They Can:**
 - They own all the hardware (not multi-tenant like a public cloud)
@@ -526,29 +336,11 @@ So, are containers making VMs obsolete for microservices?
 
 **My answer: NO - VMs are NOT obsolete! But the relationship has changed.**
 
-```mermaid
-graph TD
-    A[For Microservices] --> B{Your Situation}
-    
-    B -->|Small company, own infrastructure| C[Containers + Good security]
-    B -->|Multi-tenant cloud| D[VMs + Containers hybrid]
-    B -->|High security needs| E[VMs with containers inside]
-    B -->|Maximum agility| C
-    B -->|Compliance critical| E
-```
+![Generated Mermaid Diagram 22](diagram_images/diagram_22.png)
 
 Here's my practical advice:
 
-```mermaid
-graph TD
-    A[For Microservices] --> B{Your Situation}
-    
-    B -->|Small company, own infrastructure| C[Containers + Good security]
-    B -->|Multi-tenant cloud| D[VMs + Containers hybrid]
-    B -->|High security needs| E[VMs with containers inside]
-    B -->|Maximum agility| C
-    B -->|Compliance critical| E
-```
+![Generated Mermaid Diagram 23](diagram_images/diagram_23.png)
 
 Here's my practical advice:
 
@@ -575,13 +367,7 @@ Here's my practical advice:
 
 ## The Future Trend
 
-```mermaid
-graph LR
-    A[Next 5 Years] --> B[Secure Containers Mature]
-    B --> C[Kata, gVisor, Firecracker]
-    C --> D[Container security → VM-level]
-    D --> E[Convergence!]
-```
+![Generated Mermaid Diagram 24](diagram_images/diagram_24.png)
 
 **My Prediction:**
 - **2024-2026:** Hybrid approach dominates (containers inside VMs) - this is where we are now

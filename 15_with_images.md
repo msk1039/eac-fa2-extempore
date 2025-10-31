@@ -10,24 +10,7 @@ Edge computing is simple: instead of having one giant data center thousands of m
 
 The key difference is latency. With traditional cloud, your IoT device sends data across the internet to a data center far away, which takes one hundred to five hundred milliseconds. With edge computing, you process data right there locally, taking only one to ten milliseconds. For some applications, that difference is life or death - literally.
 
-```mermaid
-graph TB
-    subgraph "Traditional Cloud"
-        A[IoT Device] -->|Send Data| B[Internet]
-        B -->|Long Distance| C[Cloud Data Center]
-        C -->|Process| D[Send Response]
-        D -->|Long Distance| B
-        B --> A
-        E[Latency: 100-500ms]
-    end
-    
-    subgraph "Edge Computing"
-        F[IoT Device] -->|Send Data| G[Edge Server Nearby]
-        G -->|Process Locally| H[Send Response]
-        H --> F
-        I[Latency: 1-10ms]
-    end
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 *On the left, traditional cloud means data travels long distances to centralized data centers with 100-500ms latency. On the right, edge computing processes locally with just 1-10ms latency - crucial for real-time applications.*
 
@@ -37,56 +20,19 @@ Let me explain four reasons edge computing is becoming critical.
 
 **First: Latency Requirements.** For email, one second latency is perfectly fine. For video streaming, one hundred milliseconds works. For online gaming, fifty milliseconds is critical. But for autonomous vehicles? You need under ten milliseconds or people die. Imagine a car detecting an obstacle. If it sends the image to a cloud data center, waits for processing, and waits for a response, that's two hundred milliseconds. In that time, at highway speeds, you've already crashed. But process it at the edge in five milliseconds, and you brake immediately and survive. Some applications simply cannot tolerate cloud latency.
 
-```mermaid
-graph TD
-    A[Car Sensor Detects Obstacle] --> B{Processing Location}
-    
-    B -->|Cloud| C[Send to Cloud: 50ms]
-    C --> D[Process: 100ms]
-    D --> E[Response: 50ms]
-    E --> F[Total: 200ms]
-    F --> G[CRASH! 💥]
-    
-    B -->|Edge| H[Process Locally: 5ms]
-    H --> I[Apply Brakes Immediately]
-    I --> J[SAFE! ✅]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 *This diagram shows why autonomous vehicles need edge computing: cloud processing takes 200ms total - too slow to avoid accidents. Edge processing takes 5ms, allowing immediate braking to avoid crashes.*
 
 ### 2. Bandwidth Costs
 
-```mermaid
-graph TB
-    A[Factory with 1000 Cameras] --> B{Send All to Cloud?}
-    
-    B --> C[Video Data: 1000 GB/hour]
-    C --> D[Monthly Data: 720,000 GB]
-    D --> E[Cost: $72,000/month!]
-    
-    B --> F[Process at Edge]
-    F --> G[Send Only Alerts: 1 GB/hour]
-    G --> H[Monthly Data: 720 GB]
-    H --> I[Cost: $72/month!]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 **Savings:** 99.9%! ($71,928/month)
 
 ### 3. Privacy & Compliance
 
-```mermaid
-graph LR
-    A[Hospital Patient Data] --> B{Where to Process?}
-    
-    B -->|Cloud| C[Send to Cloud]
-    C --> D[Privacy Risk]
-    C --> E[Compliance Issues]
-    C --> F[Data Breach Risk]
-    
-    B -->|Edge| G[Process Locally]
-    G --> H[Data Never Leaves Hospital]
-    H --> I[HIPAA Compliant ✅]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **Example:** Healthcare imaging analysis at hospital edge servers
 
@@ -128,17 +74,7 @@ You have three layers: The edge handles immediate, real-time processing - things
 
 Each layer has a purpose. Think about a fleet of autonomous vehicles. The vehicle's onboard computer - the edge - handles obstacle detection in under five milliseconds because that's safety-critical and cannot wait for network communication. The cellular edge handles traffic updates and fleet coordination in under fifty milliseconds. The central cloud handles route optimization, trains better AI models, and generates analytics. None of these layers can replace the others - they complement each other.
 
-```mermaid
-graph LR
-    A[Device/Sensor] -->|Milliseconds| B[Edge]
-    B -->|Seconds| C[Regional Cloud]
-    C -->|Minutes| D[Central Cloud]
-    
-    E[Immediate Response] --> B
-    F[Real-time Processing] --> C
-    G[Batch Analytics] --> D
-    H[ML Training] --> D
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 *The cloud-edge continuum: devices connect to edge in milliseconds for immediate response, edge connects to regional cloud in seconds for real-time processing, regional connects to central cloud in minutes for analytics and ML training. Each layer serves distinct purposes.*
 
@@ -194,21 +130,7 @@ Edge computing isn't killing the cloud - it's extending it. Thank you!
 
 ## The Hybrid Edge-Cloud Model
 
-```mermaid
-graph TB
-    A[Best Architecture] --> B[Edge for Real-time]
-    A --> C[Cloud for Intelligence]
-    
-    B --> D[Low Latency]
-    B --> E[Privacy]
-    B --> F[Offline Operation]
-    
-    C --> G[Unlimited Scale]
-    C --> H[ML Training]
-    C --> I[Global Analytics]
-    
-    J[Together] --> K[Optimal Solution]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 **Real-World Pattern:**
 1. **Collect** at edge
@@ -267,16 +189,7 @@ graph TB
 
 ## The Future: Edge + Cloud Together
 
-```mermaid
-graph LR
-    A[2025-2030 Vision] --> B[5G Edge Everywhere]
-    A --> C[AI at Edge]
-    A --> D[Edge-Cloud Orchestration]
-    
-    B --> E[Ultra-low Latency Apps]
-    C --> F[Real-time Intelligence]
-    D --> G[Seamless Compute Fabric]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **Emerging Trends:**
 
@@ -330,15 +243,7 @@ For same workload: $50K/month (mostly bandwidth!)
 
 ### Break-even Analysis:
 
-```mermaid
-graph LR
-    A[Edge + Cloud Hybrid] --> B[Initial Cost: Higher]
-    A --> C[Ongoing: Lower]
-    C --> D[Break-even: 6-12 months]
-    
-    E[Cloud Only] --> F[Initial Cost: Lower]
-    E --> G[Ongoing: Higher]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 **When Edge Makes Financial Sense:**
 - High bandwidth usage (TB/day)
@@ -347,19 +252,7 @@ graph LR
 
 ## Challenges of Edge Computing
 
-```mermaid
-graph TB
-    A[Edge Challenges] --> B[Management Complexity]
-    A --> C[Security at Scale]
-    A --> D[Hardware Maintenance]
-    A --> E[Limited Resources]
-    A --> F[Network Reliability]
-    
-    G[Cloud Providers Solving] --> H[Managed Edge Services]
-    H --> I[AWS Outposts]
-    H --> J[Azure Stack]
-    H --> K[Google Distributed Cloud]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **Challenges:**
 1. ❌ Managing 1000s of edge locations
@@ -377,22 +270,7 @@ graph TB
 
 ## The Verdict: Complement, Not Threat!
 
-```mermaid
-graph TB
-    A[Edge Computing] --> B[Extends Cloud]
-    A --> C[Enables New Use Cases]
-    A --> D[Increases Cloud Value]
-    
-    E[Together] --> F[Better Than Either Alone]
-    
-    G[Cloud] --> H[Provides Intelligence]
-    G --> I[Manages Edge]
-    G --> J[Stores Long-term Data]
-    
-    K[Edge] --> L[Provides Low Latency]
-    K --> M[Reduces Bandwidth]
-    K --> N[Enables Privacy]
-```
+![Generated Mermaid Diagram 11](diagram_images/diagram_11.png)
 
 **The Future is Distributed Computing:**
 - Edge for immediacy

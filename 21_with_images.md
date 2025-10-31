@@ -8,24 +8,7 @@ Good morning everyone! Today I want to address one of the most critical security
 
 Let me first show you visually what we're dealing with - the fundamental difference in isolation:
 
-```mermaid
-graph TB
-    subgraph "Containers: Shared Kernel Risk"
-        A[Host OS Kernel] --> B[Container 1]
-        A --> C[Container 2]
-        A --> D[Container 3]
-        E[Kernel Exploit] --> A
-        A -.-> F[ALL CONTAINERS COMPROMISED!]
-    end
-    
-    subgraph "VMs: Hypervisor Isolation"
-        G[Hypervisor] --> H[VM 1: Own Kernel]
-        G --> I[VM 2: Own Kernel]
-        G --> J[VM 3: Own Kernel]
-        K[Exploit VM 1] --> H
-        H -.-> L[Only VM 1 affected]
-    end
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 This diagram shows the critical difference - containers share one kernel, VMs each have their own. Now let me explain why this matters.
 
@@ -37,14 +20,7 @@ Here's the scary truth about containers - they ALL depend on one shared kernel. 
 
 **What happens when host OS is compromised:**
 
-```mermaid
-graph LR
-    A[Attacker Exploits Kernel] --> B[Root Access to Host]
-    B --> C[Can Access All Containers]
-    C --> D[Read All Data]
-    C --> E[Modify All Apps]
-    C --> F[Destroy Everything]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 Think about it - if an attacker gets root access to the host kernel, they can access EVERYTHING. Every container, every application, every piece of data. It's a complete catastrophe!
 
@@ -59,16 +35,7 @@ This is exactly why security experts worry about the shared kernel model!
 
 ### How Container Isolation Actually Works
 
-```mermaid
-graph TB
-    A[Container Isolation] --> B[Namespaces]
-    A --> C[cgroups]
-    A --> D[Capabilities]
-    A --> E[Seccomp]
-    A --> F[AppArmor/SELinux]
-    
-    G[All Rely on Kernel!]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 **Here's the fundamental problem:** ALL these security features - namespaces, cgroups, capabilities, seccomp, AppArmor - they all run INSIDE the kernel! 
 
@@ -80,15 +47,7 @@ Now let me show you why hypervisors provide stronger isolation:
 
 ### The Hardware-Level Isolation Layer
 
-```mermaid
-graph TB
-    A[Hardware] --> B[Hypervisor]
-    B --> C[VM 1]
-    B --> D[VM 2]
-    B --> E[VM 3]
-    
-    F[Each VM = Separate World]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **The Key Difference:**
 - Hypervisors run in **privileged mode** (Ring -1) - the most privileged level
@@ -118,13 +77,7 @@ Let me share actual security breaches that prove these points:
 ### Container Escape Attacks
 
 **runC Vulnerability (CVE-2019-5736):**
-```mermaid
-graph LR
-    A[Malicious Container] --> B[Exploit runC]
-    B --> C[Write to Host Binary]
-    C --> D[Gain Root on Host]
-    D --> E[Access ALL Containers]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **The Impact:** Every single Docker and Kubernetes deployment was vulnerable! This affected millions of production systems worldwide. If you were running containers, you needed to patch immediately or risk complete system compromise.
 
@@ -153,15 +106,7 @@ The statistics speak for themselves - there have been roughly 5 times more conta
 
 ### How Difficult is an Escape?
 
-```mermaid
-graph LR
-    A[Escape Container] --> B[Medium Difficulty]
-    B --> C[Exploit kernel bug]
-    
-    D[Escape VM] --> E[Very Hard]
-    E --> F[Exploit hypervisor]
-    E --> G[Hardware vulnerabilities]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 **The Numbers Tell the Story:**
 - Container escape vulnerabilities: **~50 major CVEs since 2014**
@@ -172,24 +117,7 @@ This isn't just theory - the data proves that escaping containers is significant
 
 ### Defense in Depth - The Layer Advantage
 
-```mermaid
-graph TB
-    A[Application Security Layers]
-    
-    subgraph "Containers"
-        B1[App] --> C1[Container]
-        C1 --> D1[Shared Kernel]
-        D1 --> E1[Hardware]
-    end
-    
-    subgraph "VMs"
-        B2[App] --> C2[VM OS]
-        C2 --> D2[Hypervisor]
-        D2 --> E2[Hardware]
-    end
-    
-    F[VMs = Extra Security Layer!]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 **VMs provide one more barrier!** Think of it like security in a building:
 - Containers: App → Namespace → Kernel (3 doors to break through)
@@ -206,12 +134,7 @@ Now, I don't want you to think containers are hopeless - they can be secured! Le
 **1. Kata Containers and gVisor:**
 
 These are revolutionary technologies that give you the best of both worlds!
-```mermaid
-graph LR
-    A[Kata Containers] --> B[Lightweight VM per container]
-    B --> C[VM-level isolation]
-    C --> D[Container-like experience]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **Result:** You get VM-level isolation with the speed and convenience of containers! Each container runs in its own lightweight VM, so if one is compromised, the others are still safe.
 
@@ -241,16 +164,7 @@ These tools watch your containers and alert you immediately if something suspici
 
 ### Multiple Layers of Defense
 
-```mermaid
-graph TB
-    A[Container Security Strategy] --> B[Minimal Base Images]
-    A --> C[Network Policies]
-    A --> D[Pod Security Standards]
-    A --> E[Runtime Monitoring]
-    A --> F[Regular Scanning]
-    
-    G[Defense in Depth]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 A comprehensive container security strategy includes all these layers - minimal images, network isolation, security policies, continuous monitoring, and regular vulnerability scanning. Defense in depth!
 
@@ -288,17 +202,7 @@ But containers aren't always bad! Here's when they're appropriate:
 
 In reality, most organizations don't choose one or the other - they use BOTH!
 
-```mermaid
-graph TB
-    A[AWS/Azure/GCP] --> B[VMs for Customer Isolation]
-    B --> C[Containers Inside VMs]
-    
-    D[Security: VM Boundaries]
-    E[Flexibility: Containers]
-    
-    C --> D
-    C --> E
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **Why This Works:**
 - VMs provide strong boundaries between different customers or teams

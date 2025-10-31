@@ -10,69 +10,20 @@ Think of cloud security like renting an apartment. The building owner is respons
 
 Cloud security works the same way. The cloud provider secures the infrastructure - the physical data centers, the servers, the networking equipment. You secure everything you put IN that infrastructure - your data, your applications, your user accounts.
 
-```mermaid
-graph TB
-    subgraph "Cloud Shared Responsibility"
-        A[Cloud Provider] --> B[Security OF the Cloud]
-        B --> C[Physical Security]
-        B --> D[Infrastructure]
-        B --> E[Hardware]
-        
-        F[Customer] --> G[Security IN the Cloud]
-        G --> H[Data Encryption]
-        G --> I[Access Control]
-        G --> J[Application Security]
-    end
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 *This diagram shows the division: Cloud providers handle "security OF the cloud" - physical security, infrastructure, and hardware. Customers handle "security IN the cloud" - data encryption, access control, and application security. The line between them is clear but crucial to understand.*
 - Security groups
 - Network ACLs
 - VPN configurations
 
-```mermaid
-graph TB
-    A[Customer Responsibility] --> B[Data]
-    A --> C[Applications]
-    A --> D[Operating System]
-    A --> E[Network Config]
-    
-    B --> F[Must Encrypt]
-    C --> G[Must Patch]
-    D --> H[Must Update]
-    E --> I[Must Configure]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 ## The Spectrum: IaaS vs PaaS vs SaaS
 
 The level of responsibility changes based on service type:
 
-```mermaid
-graph TB
-    subgraph "IaaS (EC2, VMs)"
-        A1[Customer] --> A2[Applications]
-        A1 --> A3[OS]
-        A1 --> A4[Runtime]
-        A5[Provider] --> A6[Virtualization]
-        A5 --> A7[Hardware]
-    end
-    
-    subgraph "PaaS (Heroku, App Engine)"
-        B1[Customer] --> B2[Applications]
-        B1 --> B3[Data]
-        B4[Provider] --> B5[Runtime]
-        B4 --> B6[OS]
-        B4 --> B7[Hardware]
-    end
-    
-    subgraph "SaaS (Gmail, Salesforce)"
-        C1[Customer] --> C2[Data]
-        C1 --> C3[Access Control]
-        C4[Provider] --> C5[Application]
-        C4 --> C6[Infrastructure]
-        C4 --> C7[Everything Else]
-    end
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 ### Responsibility by Service Type:
 
@@ -176,22 +127,7 @@ The shared responsibility model isn't just a concept - it's a legal and practica
 
 What you CAN rely on cloud providers for:
 
-```mermaid
-graph TB
-    A[Cloud Provider Guarantees] --> B[Physical Security]
-    A --> C[Infrastructure Patching]
-    A --> D[Network Infrastructure]
-    A --> E[Compliance Certifications]
-    
-    B --> F[SOC 2]
-    C --> F
-    D --> F
-    E --> F
-    
-    F --> G[ISO 27001]
-    G --> H[HIPAA]
-    H --> I[PCI DSS]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **Certifications prove:**
 - ✅ Proper physical security
@@ -201,20 +137,7 @@ graph TB
 
 ## The Verdict: Who Is Truly Accountable?
 
-```mermaid
-graph TD
-    A{Data Breach Occurs} --> B[Legal Accountability]
-    A --> C[Operational Accountability]
-    
-    B --> D[Company: 100%]
-    D --> E[GDPR Fines]
-    D --> F[Customer Lawsuits]
-    D --> G[Regulatory Action]
-    
-    C --> H{Root Cause}
-    H -->|Customer Error| I[Company: 95%]
-    H -->|Provider Issue| J[Provider: 5%]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 **The Truth:**
 
@@ -229,16 +152,7 @@ Even if the cloud provider has a vulnerability, YOU are accountable to your cust
 
 ## Best Practice: Assume You're Responsible for Everything
 
-```mermaid
-graph LR
-    A[Safer Mindset] --> B[We're Responsible]
-    B --> C[Implement All Security]
-    B --> D[Monitor Everything]
-    B --> E[Audit Regularly]
-    
-    F[Dangerous Mindset] --> G[Provider Will Handle It]
-    G --> H[Security Breach]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 **Treat cloud security as if:**
 - You're responsible for EVERYTHING

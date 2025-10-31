@@ -8,20 +8,7 @@ Good morning everyone! Today I want to tackle a fascinating question - SQL force
 
 Let me start by showing you what we're actually comparing:
 
-```mermaid
-graph TB
-    subgraph "SQL: Structured Schema"
-        A1[Define Schema First] --> B1[Every Row Same Structure]
-        B1 --> C1[Types Enforced]
-        C1 --> D1[Constraints Validated]
-    end
-    
-    subgraph "NoSQL: Flexible Schema"
-        A2[No Schema Required] --> B2[Each Document Different]
-        B2 --> C2[Types Optional]
-        C2 --> D2[Validation Optional]
-    end
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 With SQL, you must define the structure first - every row follows the same schema. With NoSQL, there's no required schema - each document can be completely different. Now let's see when each approach is the right choice.
 
@@ -142,15 +129,7 @@ For regulated industries, SQL schemas are a lifesaver:
 
 **The Compliance Advantage:**
 
-```mermaid
-graph TB
-    A[Compliance Needs] --> B[Data Types Documented]
-    A --> C[Field-Level Encryption]
-    A --> D[Audit Trails]
-    A --> E[Data Retention]
-    
-    F[SQL Schema = Built-in Documentation]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 **SQL Advantage:**
 ```sql
@@ -482,24 +461,7 @@ WHERE attributes->>'color' = 'red';
 
 Let me give you clear guidance on when to use which approach:
 
-```mermaid
-graph TD
-    A{Choose Database Schema} --> B{Need Strict Validation?}
-    B -->|Yes: Financial/Medical| C[SQL - Rigid Schema]
-    B -->|No| D{Schema Evolving Fast?}
-    
-    D -->|Yes: Startup/Prototype| E[NoSQL - Flexible]
-    D -->|No| F{Polymorphic Data?}
-    
-    F -->|Yes: CMS/Multi-tenant| E
-    F -->|No| G{Complex Queries?}
-    
-    G -->|Yes: Analytics| C
-    G -->|No| H{Performance Critical?}
-    
-    H -->|Yes| C
-    H -->|No| E
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 This flowchart helps you decide - if you need strict validation or complex queries, go SQL. If your schema evolves fast or you have polymorphic data, consider NoSQL.
 

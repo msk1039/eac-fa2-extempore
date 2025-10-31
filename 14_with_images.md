@@ -10,16 +10,7 @@ Let me paint the picture of how dramatic this change was. Before cloud AI servic
 
 After cloud providers launched AI services, everything changed. Now you use pre-trained models created by those same tech giants. You pay a fraction of a cent per API call - no upfront costs. You don't need any infrastructure. You can deploy in minutes. And you don't need ML expertise - just basic programming skills. This means ANY business can use AI, not just tech companies.
 
-```mermaid
-graph TB
-    A[Building AI/ML] --> B[Use Pre-trained Models]
-    A --> C[Pay $0.001 per API call]
-    A --> D[No infrastructure needed]
-    A --> E[Deploy in minutes]
-    A --> F[No ML expertise required]
-    
-    G[ANY business can use AI]
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 *This diagram shows the modern cloud AI approach: use pre-trained models, pay tiny per-call fees, need no infrastructure, deploy instantly, require no ML expertise - making AI available to any business.*
 
@@ -31,34 +22,13 @@ Cloud providers offer AI at three different levels, depending on your needs and 
 
 Here's the amazing part: you can add image recognition to your application with literally five lines of Python code. You call Amazon Rekognition, pass it an image, and it returns labels like "Cat," "Pet," "Animal," "Furniture." Without the cloud, this would take months of development and teams of ML engineers. With the cloud, it takes five minutes.
 
-```mermaid
-graph TB
-    subgraph "AI as a Service - Just Call an API"
-        A[Your App] --> B[Vision API]
-        A --> C[Speech API]
-        A --> D[Translation API]
-        A --> E[Sentiment Analysis API]
-        
-        B --> F[Recognize objects in images]
-        C --> G[Speech to text]
-        D --> H[Translate 100+ languages]
-        E --> I[Analyze customer feedback]
-    end
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 *This shows AI as a Service: your application simply calls APIs for vision, speech, translation, or sentiment analysis. Each API provides a specific intelligent capability without you building or training models.*
 
 ### Level 2: AutoML (Minimal ML Knowledge)
 
-```mermaid
-graph LR
-    A[Your Data] --> B[Upload to Cloud]
-    B --> C[AutoML]
-    C --> D[Automatic Model Training]
-    D --> E[Automatic Tuning]
-    E --> F[Deploy Model]
-    F --> G[REST API Endpoint]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 **Services:**
 - **AWS SageMaker Autopilot**
@@ -67,49 +37,17 @@ graph LR
 
 **Example: Building Custom Image Classifier**
 
-```mermaid
-graph TB
-    A[Upload 1000 product images] --> B[Label: Shoes, Shirts, Pants]
-    B --> C[AutoML trains model]
-    C --> D[Test accuracy: 95%]
-    D --> E[Deploy with 1 click]
-    E --> F[Classify new images via API]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **Time:** 2-3 hours vs. weeks manually!
 
 ### Level 3: Custom ML Platforms (For ML Engineers)
 
-```mermaid
-graph TB
-    A[ML Platform] --> B[Data Preparation]
-    A --> C[Model Training]
-    A --> D[Hyperparameter Tuning]
-    A --> E[Model Deployment]
-    A --> F[Monitoring & Retraining]
-    
-    G[Services] --> H[AWS SageMaker]
-    G --> I[Google Vertex AI]
-    G --> J[Azure ML Studio]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **Full ML Workflow:**
 
-```mermaid
-graph LR
-    A[Raw Data] --> B[Data Labeling]
-    B --> C[Feature Engineering]
-    C --> D[Train Model]
-    D --> E[Validate Model]
-    E --> F{Good Enough?}
-    F -->|No| G[Tune Hyperparameters]
-    G --> D
-    F -->|Yes| H[Deploy to Production]
-    H --> I[Monitor Performance]
-    I --> J{Degrading?}
-    J -->|Yes| K[Retrain]
-    K --> D
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 ## Real-World Democratization Examples
 
@@ -200,15 +138,7 @@ result = comprehend_medical.detect_entities_v2(Text=text)
 
 **Level Two: AutoML.** This is for when you need something more custom but still don't want to become an ML expert. You upload your data - let's say a thousand product images - label them as "Shoes," "Shirts," "Pants," and AutoML automatically trains a custom model for you. It tunes all the parameters, tests accuracy, and deploys the model with one click. What used to take weeks of expert work now takes two to three hours. Google Cloud AutoML, AWS SageMaker Autopilot, and Azure Machine Learning all offer this.
 
-```mermaid
-graph LR
-    A[Your Data] --> B[Upload to Cloud]
-    B --> C[AutoML]
-    C --> D[Automatic Model Training]
-    D --> E[Automatic Tuning]
-    E --> F[Deploy Model]
-    F --> G[REST API Endpoint]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 *AutoML workflow: upload your data, the service automatically trains models, tunes hyperparameters, tests accuracy, and deploys a REST API endpoint - all without you writing ML code.*
 
@@ -272,13 +202,7 @@ The democratization of AI is one of the most important developments in technolog
 
 ### Beginner Path:
 
-```mermaid
-graph LR
-    A[Week 1] --> B[Try Pre-built APIs]
-    B --> C[Week 2-4: Build Simple Apps]
-    C --> D[Month 2: AutoML]
-    D --> E[Month 3+: Custom Models]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **First Project Ideas:**
 1. **Image Classifier:** Upload photo, identify object
@@ -311,16 +235,7 @@ graph LR
 
 **Result:** Any developer, any business, any budget can now build intelligent applications!
 
-```mermaid
-graph LR
-    A[AI/ML in Cloud] --> B[Accessibility]
-    A --> C[Affordability]
-    A --> D[Scalability]
-    B --> E[Every Business]
-    C --> E
-    D --> E
-    E --> F[Innovation Everywhere!]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 ---
 

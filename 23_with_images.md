@@ -8,20 +8,7 @@ Good morning everyone! Today I want to help you solve a critical decision - you'
 
 Before we dive in, let me show you the fundamental difference between these two approaches:
 
-```mermaid
-graph TB
-    subgraph "RDS: Relational Database"
-        A1[Structured Tables] --> B1[SQL Queries]
-        B1 --> C1[ACID Transactions]
-        C1 --> D1[Vertical Scaling]
-    end
-    
-    subgraph "DynamoDB: NoSQL"
-        A2[Key-Value Store] --> B2[Simple Queries]
-        B2 --> C2[Eventual Consistency]
-        C2 --> D2[Horizontal Scaling]
-    end
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 RDS gives you structured tables with powerful SQL queries and ACID transactions, but scales vertically. DynamoDB gives you flexible key-value storage with simple queries and horizontal scaling. Now let's see what an e-commerce platform actually needs.
 
@@ -31,27 +18,13 @@ Let me break down the requirements for both parts of an e-commerce system:
 
 ### Product Catalog Requirements
 
-```mermaid
-graph LR
-    A[Product Catalog] --> B[100M+ Products]
-    A --> C[Fast Reads]
-    A --> D[Global Access]
-    A --> E[Search & Filter]
-    A --> F[Flexible Schema]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 For product catalogs, you need to handle potentially 100 million+ products, serve them fast globally, support search and filtering, and accommodate products with different attributes. Think about it - a t-shirt has different attributes than a laptop!
 
 ### Checkout System Requirements
 
-```mermaid
-graph LR
-    A[Checkout] --> B[ACID Transactions]
-    A --> C[Inventory Management]
-    A --> D[Payment Processing]
-    A --> E[Order History]
-    A --> F[Data Consistency]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 For checkout, you absolutely need ACID transactions, accurate inventory management, reliable payment processing, and consistent order history. You can't have someone paying for a product that's out of stock!
 
@@ -63,13 +36,7 @@ Now let's see how each database handles these requirements.
 
 **RDS = Relational Database Service** - This is AWS's managed service for SQL databases like MySQL, PostgreSQL, etc.
 
-```mermaid
-graph TB
-    A[RDS] --> B[MySQL/PostgreSQL]
-    B --> C[Tables with Relations]
-    C --> D[SQL Queries]
-    D --> E[ACID Guarantees]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 ### Building a Product Catalog with RDS
 
@@ -169,25 +136,12 @@ Super easy! You can do complex analytics, reporting, and business intelligence d
 But RDS has some serious limitations for global e-commerce:
 
 ❌ **Scaling Limitations**
-```mermaid
-graph TB
-    A[Single RDS Instance] --> B[Max: ~100K connections]
-    B --> C{Need More?}
-    C --> D[Vertical Scale: Bigger Server]
-    D --> E[Eventually Hits Limit]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **The Reality:** RDS can't easily scale to millions of concurrent users browsing products globally. Eventually you hit a ceiling!
 
 **❌ Read Replicas Are Complex:**
-```mermaid
-graph LR
-    A[Primary: Writes] --> B[Replica 1: Reads]
-    A --> C[Replica 2: Reads]
-    A --> D[Replica 3: Reads]
-    
-    E[Application Must Route]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 Your application code has to be smart about routing writes to primary and reads to replicas. Added complexity!
 
@@ -213,13 +167,7 @@ Now let's look at the NoSQL alternative:
 
 **DynamoDB = AWS's NoSQL Database** - It's a fully managed key-value and document store that scales infinitely.
 
-```mermaid
-graph TB
-    A[DynamoDB] --> B[Tables]
-    B --> C[Items: JSON-like]
-    C --> D[Primary Key Access]
-    D --> E[Horizontal Scaling]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 ### Building a Product Catalog with DynamoDB
 
@@ -297,28 +245,12 @@ DynamoDB does support transactions! Both operations succeed or both fail. The co
 ### DynamoDB Strengths for E-commerce
 
 Let me show you where DynamoDB really shines:
-```mermaid
-graph LR
-    A[1K requests/sec] --> B[Auto-scale]
-    B --> C[100K requests/sec]
-    C --> D[1M requests/sec]
-    
-    E[No Manual Intervention!]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **The Reality:** Amazon.com uses DynamoDB and handles over 100 MILLION requests per second during Prime Day! That's the kind of scale we're talking about. With RDS, you'd hit limits way before that.
 
 **✅ Global Tables for Worldwide Access:**
-```mermaid
-graph TB
-    A[User in USA] --> B[DynamoDB US]
-    C[User in Europe] --> D[DynamoDB EU]
-    E[User in Asia] --> F[DynamoDB Asia]
-    
-    B <-->|Auto-Replicate| D
-    D <-->|Auto-Replicate| F
-    F <-->|Auto-Replicate| B
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 **The Benefits:**
 - Users in USA, Europe, and Asia all get single-digit millisecond latency
@@ -372,11 +304,7 @@ But DynamoDB has its own challenges:
 Complex searches and analytics are painful with DynamoDB. You often need to export data to a data warehouse for analysis.
 
 **❌ No Joins - You Have to Do It in Code:**
-```mermaid
-graph LR
-    A[Need Order + User + Products] --> B[3 Separate Queries]
-    B --> C[Join in Application]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **Impact:** Your application becomes more complex - you have to fetch data from multiple tables and join it in your code. With SQL, the database does it for you.
 
@@ -417,20 +345,7 @@ This table shows the fundamental tradeoff - DynamoDB wins on scale and global di
 
 Here's the secret - you don't have to choose just one! The smartest approach is to use BOTH databases for different parts of your e-commerce system:
 
-```mermaid
-graph TB
-    A[E-commerce System] --> B[DynamoDB: Product Catalog]
-    A --> C[RDS: Checkout & Orders]
-    
-    B --> D[100M products]
-    B --> E[Global reads]
-    B --> F[Fast browsing]
-    
-    C --> G[Transactions]
-    C --> H[Inventory]
-    C --> I[Order history]
-    C --> J[Analytics]
-```
+![Generated Mermaid Diagram 11](diagram_images/diagram_11.png)
 
 **The Strategy:**
 - Use DynamoDB for browsing products (100M products, fast global reads)
@@ -441,24 +356,12 @@ Best of both worlds!
 ### Recommended Split - What Goes Where
 
 **Use DynamoDB For:**
-```mermaid
-graph LR
-    A[Product Catalog] --> B[Fast Read Access]
-    C[User Sessions] --> D[Temporary Data]
-    E[Shopping Cart] --> F[Flexible Schema]
-    G[Product Reviews] --> H[High Write Volume]
-```
+![Generated Mermaid Diagram 12](diagram_images/diagram_12.png)
 
 Why? These are read-heavy, need global access, and benefit from flexible schemas.
 
 **Use RDS For:**
-```mermaid
-graph LR
-    A[Orders] --> B[ACID Required]
-    C[Inventory] --> D[Consistency Critical]
-    E[Payments] --> F[Transactional]
-    G[Analytics] --> H[Complex Queries]
-```
+![Generated Mermaid Diagram 13](diagram_images/diagram_13.png)
 
 Why? These absolutely require ACID transactions, data consistency is critical, and you need complex queries for reporting.
 
@@ -467,23 +370,12 @@ Why? These absolutely require ACID transactions, data consistency is critical, a
 Let me show you how actual companies handle this:
 
 ### Amazon.com - The Hybrid Approach
-```mermaid
-graph TB
-    A[Amazon] --> B[DynamoDB: Product Catalog]
-    A --> C[DynamoDB: Cart]
-    A --> D[Aurora/RDS: Orders]
-    A --> E[Aurora/RDS: Inventory]
-```
+![Generated Mermaid Diagram 14](diagram_images/diagram_14.png)
 
 **Why Amazon Does This:** They use each database for what it's best at! DynamoDB for massive scale browsing, relational databases for transaction integrity.
 
 ### Shopify - Different Approach
-```mermaid
-graph TB
-    A[Shopify] --> B[MySQL: Core Data]
-    A --> C[Redis: Caching]
-    A --> D[Elasticsearch: Search]
-```
+![Generated Mermaid Diagram 15](diagram_images/diagram_15.png)
 
 **Different Approach:** Shopify primarily uses MySQL (RDS equivalent) but adds Redis for caching and Elasticsearch for search. They've chosen to optimize RDS rather than use NoSQL.
 
@@ -513,24 +405,7 @@ Why RDS for checkout:
 
 **The Optimal Solution - Hybrid Architecture:**
 
-```mermaid
-graph TB
-    A[Global E-commerce Platform] --> B[DynamoDB]
-    A --> C[RDS/Aurora]
-    A --> D[ElastiCache]
-    A --> E[Elasticsearch]
-    
-    B --> F[Product Catalog]
-    B --> G[User Carts]
-    B --> H[Sessions]
-    
-    C --> I[Orders]
-    C --> J[Inventory]
-    C --> K[Payments]
-    
-    D --> L[Caching Layer]
-    E --> M[Product Search]
-```
+![Generated Mermaid Diagram 16](diagram_images/diagram_16.png)
 
 **This is the architecture used by the biggest e-commerce platforms!**
 

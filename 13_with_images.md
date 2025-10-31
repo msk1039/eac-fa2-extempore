@@ -10,15 +10,7 @@ Think of Kubernetes as the conductor of an orchestra. The conductor doesn't play
 
 Kubernetes schedules where containers run, scales applications automatically when traffic increases, handles failures by restarting crashed containers, manages networking between services, and handles updates and rollbacks. It's orchestrating everything behind the scenes.
 
-```mermaid
-graph TB
-    A[Kubernetes] --> B[Container Orchestration]
-    B --> C[Schedules where containers run]
-    B --> D[Scales applications automatically]
-    B --> E[Handles failures/restarts]
-    B --> F[Manages networking]
-    B --> G[Handles updates/rollbacks]
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 *This diagram shows Kubernetes as the central orchestrator managing all container operations: scheduling workloads, auto-scaling, self-healing failed containers, networking between services, and deployment management.*
 
@@ -28,22 +20,7 @@ Here's why people call it the operating system of the cloud: Think about what Wi
 
 Kubernetes does the exact same thing, but for the cloud. It manages containers instead of processes. It manages compute resources across hundreds of servers instead of one computer's CPU. It manages cloud storage volumes instead of a single hard drive. The analogy is perfect.
 
-```mermaid
-graph LR
-    subgraph "Traditional OS"
-        A[Windows/Linux] --> B[Manages Processes]
-        A --> C[Manages Memory]
-        A --> D[Manages Storage]
-        A --> E[Manages Networking]
-    end
-    
-    subgraph "Cloud OS (Kubernetes)"
-        F[Kubernetes] --> G[Manages Containers]
-        F --> H[Manages Compute Resources]
-        F --> I[Manages Volumes]
-        F --> J[Manages Service Mesh]
-    end
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 *On the left, traditional operating systems manage processes, memory, storage, and networking on a single computer. On the right, Kubernetes manages containers, compute across clusters, volumes, and service meshes across entire data centers - the same abstraction at cloud scale.*
 
@@ -51,15 +28,7 @@ graph LR
 
 ### 1. Born at Google, Proven at Scale
 
-```mermaid
-graph LR
-    A[Google's Borg] -->|2014| B[Kubernetes Open Source]
-    B --> C[Cloud Native Computing Foundation]
-    C --> D[Industry Standard]
-    
-    E[Google Experience] --> F[15+ years]
-    F --> G[Billions of containers/week]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 **Google's credibility:**
 - Runs Gmail, YouTube, Search on containers
@@ -70,15 +39,7 @@ graph LR
 
 **Before Kubernetes:**
 
-```mermaid
-graph TB
-    A[Manual Deployment] --> B[SSH to each server]
-    B --> C[Copy files]
-    C --> D[Restart services]
-    D --> E{Working?}
-    E -->|No| F[Debug for hours]
-    E -->|Yes| G[Do it all again for next server]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **With Kubernetes:**
 
@@ -87,33 +48,11 @@ kubectl apply -f deployment.yaml
 # Done! K8s handles everything
 ```
 
-```mermaid
-graph LR
-    A[Developer] --> B[kubectl apply]
-    B --> C[K8s Controller]
-    C --> D[Schedules pods]
-    C --> E[Manages replicas]
-    C --> F[Configures networking]
-    C --> G[All servers updated!]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 ### 3. Cloud-Agnostic (Avoid Vendor Lock-in)
 
-```mermaid
-graph TB
-    A[Your K8s App] --> B{Run Anywhere}
-    B --> C[AWS EKS]
-    B --> D[Azure AKS]
-    B --> E[Google GKE]
-    B --> F[On-Premise]
-    B --> G[Laptop]
-    
-    H[Same YAML] --> C
-    H --> D
-    H --> E
-    H --> F
-    H --> G
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 **The Promise:**
 ```yaml
@@ -152,31 +91,11 @@ replicas: 10
 # K8s figures out HOW
 ```
 
-```mermaid
-graph LR
-    A[Desired State] -->|K8s| B[Current State]
-    B --> C{Match?}
-    C -->|No| D[K8s Takes Action]
-    D --> E[Create pods]
-    D --> F[Scale up/down]
-    D --> G[Replace failed pods]
-    C -->|Yes| H[Do nothing]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 ### 5. Massive Ecosystem
 
-```mermaid
-graph TB
-    A[Kubernetes Ecosystem] --> B[Service Mesh: Istio]
-    A --> C[Monitoring: Prometheus]
-    A --> D[Logging: Fluentd]
-    A --> E[CI/CD: ArgoCD]
-    A --> F[Security: Falco]
-    A --> G[Networking: Calico]
-    A --> H[Storage: Rook]
-    
-    I[CNCF Projects] --> J[200+ tools]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **Everything integrates with K8s!**
 
@@ -222,16 +141,7 @@ graph LR
 
 **Fourth: Declarative configuration.** The old way was imperative - you tell the system HOW to do something step by step. Kubernetes is declarative - you tell it WHAT you want, and it figures out HOW. You say "I want 10 replicas" and Kubernetes continuously works to maintain that state. If pods crash, it creates new ones. If you scale down, it removes them. You describe the desired state, and Kubernetes makes it reality.
 
-```mermaid
-graph LR
-    A[Desired State] -->|K8s| B[Current State]
-    B --> C{Match?}
-    C -->|No| D[K8s Takes Action]
-    D --> E[Create pods]
-    D --> F[Scale up/down]
-    D --> G[Replace failed pods]
-    C -->|Yes| H[Do nothing]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 *Kubernetes continuously compares desired state to current state. If they don't match, it takes action - creating pods, scaling, or replacing failures. If they match, it does nothing. This self-healing loop runs constantly.*
 

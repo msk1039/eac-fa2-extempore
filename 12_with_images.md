@@ -12,34 +12,11 @@ GDPR stands for General Data Protection Regulation. It's the European Union's wa
 
 HIPAA is the American health data protection law. If you handle patient health information in any way - as a hospital, insurance company, or even as a cloud service provider helping them - HIPAA applies. The penalties go up to one and a half million dollars per violation.
 
-```mermaid
-graph TB
-    A[GDPR Core Principles] --> B[Data Minimization]
-    A --> C[Purpose Limitation]
-    A --> D[Storage Limitation]
-    A --> E[Right to be Forgotten]
-    A --> F[Data Portability]
-    A --> G[Breach Notification]
-    
-    H[Penalties] --> I[Up to €20M or 4% revenue]
-    I --> J[Whichever is HIGHER!]
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 *This diagram shows GDPR's core principles: you can only collect what you need, use it for specific purposes, keep it for limited time, let users delete it, allow users to export it, and notify breaches within 72 hours. At the bottom, you see the massive penalties that enforce these principles.*
 
-```mermaid
-graph TB
-    A[HIPAA Requirements] --> B[Administrative Safeguards]
-    A --> C[Physical Safeguards]
-    A --> D[Technical Safeguards]
-    
-    B --> E[Access Control]
-    C --> F[Facility Security]
-    D --> G[Encryption]
-    D --> H[Audit Logs]
-    
-    I[Penalties] --> J[Up to $1.5M per violation]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 *HIPAA requires three types of safeguards: administrative controls like access policies, physical security of facilities, and technical protections like encryption and audit logs. The penalties at the bottom enforce compliance.*
 
@@ -49,19 +26,7 @@ graph TB
 
 **GDPR Impact:** EU data MUST stay in EU (with exceptions)
 
-```mermaid
-graph TB
-    subgraph "Non-Compliant Architecture"
-        A[EU User] --> B[API Gateway: US]
-        B --> C[Database: US]
-    end
-    
-    subgraph "Compliant Architecture"
-        D[EU User] --> E[API Gateway: EU]
-        E --> F[Database: EU Region]
-        F -.->|Encrypted Transfer| G[Analytics: US]
-    end
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 **Architectural Changes Required:**
 
@@ -82,34 +47,13 @@ Data never crosses regions without consent
 
 **Real Example: Airbnb Architecture**
 
-```mermaid
-graph LR
-    A[User Requests] --> B{Location Detection}
-    B -->|EU User| C[EU Region]
-    B -->|US User| D[US Region]
-    B -->|Asia User| E[Asia Region]
-    
-    C --> F[EU Database]
-    D --> G[US Database]
-    E --> H[Asia Database]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 ### 2. Data Encryption Requirements
 
 **Both GDPR & HIPAA:** Encryption at rest and in transit
 
-```mermaid
-graph TB
-    A[Encryption Requirements] --> B[Data at Rest]
-    A --> C[Data in Transit]
-    A --> D[Backup Encryption]
-    A --> E[Key Management]
-    
-    B --> F[AES-256 for databases]
-    C --> G[TLS 1.2+ for transfer]
-    D --> H[Encrypted snapshots]
-    E --> I[AWS KMS / Azure Key Vault]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **Architecture Impact:**
 
@@ -133,34 +77,11 @@ Properties:
 
 **HIPAA Requirement:** Track WHO accessed WHAT patient data, WHEN
 
-```mermaid
-graph LR
-    A[Doctor Access PHI] --> B[Log Event]
-    B --> C[CloudTrail]
-    C --> D[Immutable Log Storage]
-    D --> E[Compliance Dashboard]
-    
-    F[Auditor] --> G[Query Logs]
-    G --> H[Who accessed Patient 123?]
-    H --> I[Dr. Smith on 2024-10-15]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 **Architecture Components:**
 
-```mermaid
-graph TB
-    subgraph "Compliance Architecture"
-        A[Application] --> B[IAM Authentication]
-        B --> C[Fine-grained Access Control]
-        C --> D[Database]
-        
-        E[CloudTrail] --> F[S3 Audit Logs]
-        F --> G[Glacier Long-term]
-        
-        H[CloudWatch] --> I[Real-time Monitoring]
-        I --> J[Alerts on Suspicious Access]
-    end
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 **Retention Requirements:**
 - HIPAA: 6 years
@@ -224,17 +145,7 @@ graph LR
 
 **Third: Audit Logging.** HIPAA particularly requires tracking who accessed what patient data and when. Imagine a hospital database - you need to log every single access. Doctor Smith viewed Patient 123's record at this exact time. Nurse Jones updated medication at that time. And you must keep these logs for six years! That's an enormous amount of data. You need CloudTrail for API logging, CloudWatch for monitoring, and massive storage for retention.
 
-```mermaid
-graph LR
-    A[Doctor Access PHI] --> B[Log Event]
-    B --> C[CloudTrail]
-    C --> D[Immutable Log Storage]
-    D --> E[Compliance Dashboard]
-    
-    F[Auditor] --> G[Query Logs]
-    G --> H[Who accessed Patient 123?]
-    H --> I[Dr. Smith on 2024-10-15]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 *This shows the audit trail: when a doctor accesses patient health information, it's logged in CloudTrail, stored immutably, and can be queried later by auditors to prove compliance and track access patterns.*
 

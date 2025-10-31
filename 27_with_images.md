@@ -11,15 +11,7 @@ CloudWatch is AWS's monitoring and observability service. Just like you check yo
 
 Let me start with the basics - what exactly is CloudWatch?
 
-```mermaid
-graph TB
-    A[AWS CloudWatch] --> B[Collect Metrics]
-    A --> C[Monitor Logs]
-    A --> D[Set Alarms]
-    A --> E[Auto-React]
-    
-    B --> F[EC2, RDS, Lambda, S3...]
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 **The Four Core Functions:**
 
@@ -38,13 +30,7 @@ Now let's talk about EC2 monitoring - how CloudWatch tracks your virtual servers
 
 AWS automatically collects these metrics for every EC2 instance, at 5-minute intervals, for free:
 
-```mermaid
-graph LR
-    A[EC2 Instance] --> B[CPU Utilization]
-    A --> C[Network In/Out]
-    A --> D[Disk Read/Write]
-    A --> E[Status Checks]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 **What These Metrics Tell You:**
 
@@ -56,14 +42,7 @@ Here's the interesting part - these basic metrics DON'T include memory! That's b
 
 You can enable detailed monitoring for $2.10 per instance per month:
 
-```mermaid
-graph TB
-    A[Enable Detailed Monitoring] --> B[1-minute granularity]
-    B --> C[Faster problem detection]
-    B --> D[Better auto-scaling]
-    
-    E[Cost: $2.10/instance/month]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 The difference? Instead of getting metrics every 5 minutes, you get them every minute! This is crucial for production systems where you need to detect problems fast.
 
@@ -83,14 +62,7 @@ This is essential for production monitoring because memory problems are just as 
 
 Here's where CloudWatch becomes really powerful - automated responses! Let me give you an example:
 
-```mermaid
-graph LR
-    A[CPU > 80%] --> B[Alarm Triggers]
-    B --> C[Add 2 EC2 Instances]
-    B --> D[Email Admin]
-    
-    E[Problem Solved Automatically]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **The Scenario:**
 You set an alarm that watches CPU utilization. If CPU stays above 80% for 5 minutes, the alarm triggers. What happens?
@@ -106,18 +78,7 @@ Now let's look at database monitoring - this is critical because databases are o
 
 **Key Database Metrics:**
 
-```mermaid
-graph TB
-    A[RDS Monitoring] --> B[Performance]
-    A --> C[Connections]
-    A --> D[Storage]
-    A --> E[Replication]
-    
-    B --> F[CPU, IOPS, Latency]
-    C --> G[Active Connections]
-    D --> H[Free Space]
-    E --> I[Replica Lag]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 Let me explain the most important ones:
 
@@ -138,15 +99,7 @@ CloudWatch tracks read and write latency. If read latency is 5 milliseconds and 
 
 For production databases, you can enable Enhanced Monitoring:
 
-```mermaid
-graph LR
-    A[Enhanced Monitoring] --> B[OS Metrics]
-    B --> C[Process List]
-    B --> D[Memory Breakdown]
-    B --> E[Disk I/O Details]
-    
-    F[Real-time Performance]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 This gives you 1-second granularity! You can see exactly which process is consuming resources, detailed memory breakdown, and real-time disk I/O. It's like having X-ray vision into your database!
 
@@ -163,16 +116,7 @@ Lambda monitoring is different because it's serverless - you don't manage server
 
 **Lambda-Specific Metrics:**
 
-```mermaid
-graph TB
-    A[Lambda Monitoring] --> B[Invocations]
-    A --> C[Duration]
-    A --> D[Errors]
-    A --> E[Throttles]
-    A --> F[Concurrent Executions]
-    
-    G[All Automatic!]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 The great thing about Lambda? CloudWatch automatically collects all these metrics - no agent installation needed!
 
@@ -202,15 +146,7 @@ CloudWatch helps you optimize this! For example, if monitoring shows you're only
 
 **Lambda Insights (Advanced Monitoring):**
 
-```mermaid
-graph LR
-    A[Lambda Insights] --> B[Memory Usage]
-    A --> C[Cold Start Tracking]
-    A --> D[CPU Time]
-    A --> E[Network]
-    
-    F[Optimize Performance]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 Lambda Insights can tell you: "Hey, you allocated 1024MB but only use 256MB - reduce memory to 512MB and save 50% on this function!"
 
@@ -231,15 +167,7 @@ Now let me show you how to bring all this together - CloudWatch Dashboards!
 
 **The Single Pane of Glass:**
 
-```mermaid
-graph TB
-    A[CloudWatch Dashboard] --> B[EC2 Panel]
-    A --> C[RDS Panel]
-    A --> D[Lambda Panel]
-    A --> E[Cost Panel]
-    
-    F[Single Pane of Glass]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 Imagine you're managing an e-commerce application. You have:
 - Web servers running on EC2
@@ -279,14 +207,7 @@ Here's something really cool - CloudWatch uses AI to detect unusual patterns!
 
 **AI-Powered Monitoring:**
 
-```mermaid
-graph LR
-    A[Historical Data] --> B[ML Model]
-    B --> C[Expected Range]
-    C --> D{Actual Value}
-    D -->|Within Range| E[Normal]
-    D -->|Outside Range| F[Alert!]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **How It Works:**
 
@@ -308,20 +229,7 @@ Let me bring this all together with a real-world example!
 
 **The Setup:**
 
-```mermaid
-graph TB
-    A[CloudWatch] --> B[Web Servers: EC2]
-    A --> C[Database: RDS]
-    A --> D[Functions: Lambda]
-    
-    B --> E[Monitor: CPU, Network, Disk]
-    C --> F[Monitor: Connections, IOPS, Latency]
-    D --> G[Monitor: Invocations, Errors, Duration]
-    
-    H[Alarms] --> I[Email Team]
-    H --> J[Auto-Scale]
-    H --> K[PagerDuty]
-```
+![Generated Mermaid Diagram 11](diagram_images/diagram_11.png)
 
 **The Monitoring Strategy:**
 

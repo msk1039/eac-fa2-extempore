@@ -8,15 +8,7 @@ Good morning everyone! Today I want to talk about something absolutely critical 
 
 Let me show you the main reasons why you absolutely need cloud monitoring:
 
-```mermaid
-graph TB
-    A[Why Monitor Cloud?] --> B[Detect Issues Fast]
-    A --> C[Optimize Performance]
-    A --> D[Control Costs]
-    A --> E[Ensure Security]
-    A --> F[Meet SLAs]
-    A --> G[Enable Scaling]
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 These are the six critical reasons - let me dive into each one!
 
@@ -25,30 +17,12 @@ These are the six critical reasons - let me dive into each one!
 This is the most important reason! You want to find issues before they impact customers.
 
 ### The Nightmare Scenario Without Monitoring
-```mermaid
-graph LR
-    A[Problem Occurs] --> B[Users Experience It]
-    B --> C[Users Complain]
-    C --> D[Support Tickets]
-    D --> E[Developer Investigation]
-    E --> F[Fix Deployed]
-    
-    G[Time: Hours/Days]
-    H[Damage: Reputation Loss]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 Without monitoring, you're reactive - users discover problems before you do! By the time you know about it, damage is done.
 
 **The Smart Approach - With Monitoring:**
-```mermaid
-graph LR
-    A[Problem Occurs] --> B[Alert Fires]
-    B --> C[Developer Notified]
-    C --> D[Fix Deployed]
-    
-    E[Time: Minutes]
-    F[Damage: Minimal]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 With monitoring, you're proactive - you detect and fix issues before users notice!
 
@@ -81,16 +55,7 @@ You can't optimize what you can't measure! Monitoring shows you exactly where yo
 
 ### How Monitoring Identifies Bottlenecks
 
-```mermaid
-graph TB
-    A[Monitor Everything] --> B[API Response Time]
-    A --> C[Database Queries]
-    A --> D[Cache Hit Rate]
-    A --> E[Network Latency]
-    
-    F[Identify Slowest Component]
-    G[Optimize It First]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **Performance Optimization Example:**
 ```javascript
@@ -144,16 +109,7 @@ Problem discovered too late!
 By month 4, you're in panic mode with a $15,000 bill! Without monitoring, costs creep up unnoticed.
 
 **Smart Cost Control with Monitoring:**
-```mermaid
-graph TD
-    A[Daily Cost Check] --> B{Increase > 20%?}
-    B -->|Yes| C[Alert: Unusual Spending]
-    C --> D[Investigate Same Day]
-    D --> E[Find: Left EC2 running]
-    E --> F[Fix: Stop instance]
-    
-    B -->|No| G[Continue Monitoring]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 You catch the problem on day 1, not day 30!
 
@@ -183,15 +139,7 @@ Here's something most people don't realize - auto-scaling is IMPOSSIBLE without 
 
 ### Why Auto-Scaling Needs Monitoring
 
-```mermaid
-graph LR
-    A[Traffic Increases] --> B[Monitor Detects]
-    B --> C[Trigger: CPU > 70%]
-    C --> D[Auto-Scale: +2 Instances]
-    D --> E[Performance Maintained]
-    
-    F[No Monitoring = No Auto-Scaling!]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 Auto-scaling needs metrics to make decisions! Without monitoring data, it has nothing to trigger on.
 
@@ -235,17 +183,7 @@ Monitoring isn't just about performance - it's critical for security too!
 
 ### Detecting Security Threats in Real-Time
 
-```mermaid
-graph TD
-    A[Security Monitoring] --> B[Failed Login Attempts]
-    A --> C[Unusual Data Access]
-    A --> D[Config Changes]
-    A --> E[Network Anomalies]
-    
-    F{Threat Detected?}
-    F -->|Yes| G[Alert Security Team]
-    F -->|No| H[Continue Monitoring]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 Monitoring watches for suspicious patterns that indicate attacks!
 
@@ -272,15 +210,7 @@ Monitoring stops attacks in their tracks! $5 million fine prevented.
 
 ### Meeting Compliance Requirements - It's Mandatory!
 
-```mermaid
-graph LR
-    A[Compliance] --> B[HIPAA: Audit Logs]
-    A --> C[PCI-DSS: Access Monitoring]
-    A --> D[SOC 2: Security Monitoring]
-    A --> E[GDPR: Data Access Logs]
-    
-    F[No Monitoring = Non-Compliant!]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **Key Compliance Standards:**
 - **HIPAA:** Requires audit logs of all patient data access
@@ -322,15 +252,7 @@ Let me show you what a complete monitoring setup looks like:
 
 ### Proactive SLA Management
 
-```mermaid
-graph TD
-    A[Monitor Uptime] --> B{Below 99.9%?}
-    B -->|Yes| C[Emergency Response]
-    C --> D[Fix Issues Fast]
-    B -->|No| E{Close to Limit?}
-    E -->|Yes| F[Extra Caution]
-    E -->|No| G[Normal Operations]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 ## 7. Capacity Planning
 
@@ -346,13 +268,7 @@ Company Growth Pattern:
 ```
 
 **With Monitoring:**
-```mermaid
-graph LR
-    A[Monitor Growth] --> B[Trend: +10%/month]
-    B --> C[Projection: Capacity full in 3 months]
-    C --> D[Plan: Add capacity next month]
-    D --> E[Result: Smooth scaling]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **Financial Impact:**
 ```
@@ -375,15 +291,7 @@ Savings: $20K + No downtime
 
 ### The Detective Work
 
-```mermaid
-graph TB
-    A[Issue Reported] --> B[Check Monitoring Data]
-    B --> C[Spike in Error Rate at 2:15 PM]
-    B --> D[Deploy Happened at 2:14 PM]
-    B --> E[New Code Caused Errors]
-    
-    F[Root Cause Found in Minutes]
-```
+![Generated Mermaid Diagram 11](diagram_images/diagram_11.png)
 
 **Without Monitoring:**
 ```javascript
@@ -415,15 +323,7 @@ Here's something really interesting - monitoring helps you understand your actua
 
 Think about this - you build an application that works great on your laptop. But what about your actual users? Monitoring gives you the real picture:
 
-```mermaid
-graph TB
-    A[Real User Monitoring] --> B[Page Load Time]
-    A --> C[Geographic Performance]
-    A --> D[Device Performance]
-    A --> E[Feature Usage]
-    
-    F[Optimize User Experience]
-```
+![Generated Mermaid Diagram 12](diagram_images/diagram_12.png)
 
 **Real Example - Geographic Performance:**
 
@@ -447,14 +347,7 @@ The final reason is perhaps the most powerful - monitoring drives business decis
 
 Monitoring doesn't just track technical metrics - it reveals business patterns:
 
-```mermaid
-graph LR
-    A[Monitoring Data] --> B[Peak Hours: 8 PM - 10 PM]
-    A --> C[Popular Feature: Video Streaming]
-    A --> D[Churn Rate: After 5 min Load Time]
-    
-    E[Business Decisions]
-```
+![Generated Mermaid Diagram 13](diagram_images/diagram_13.png)
 
 **Real E-commerce Example:**
 
@@ -472,18 +365,7 @@ Let me paint a scary picture - what happens when you run cloud services without 
 
 **The Nightmare Scenario:**
 
-```mermaid
-graph TD
-    A[No Monitoring] --> B[Blind Operations]
-    B --> C[Slow Issue Detection]
-    B --> D[Poor Performance]
-    B --> E[Cost Overruns]
-    B --> F[Security Vulnerabilities]
-    B --> G[SLA Violations]
-    B --> H[Bad User Experience]
-    
-    I[Business Failure]
-```
+![Generated Mermaid Diagram 14](diagram_images/diagram_14.png)
 
 You're basically flying blind! Every problem I mentioned earlier becomes a crisis instead of a quick fix.
 
@@ -506,16 +388,7 @@ Without monitoring, you don't just risk technical problems - you risk your entir
 
 So what should you actually monitor? Let me break it down into three key categories:
 
-```mermaid
-graph TB
-    A[Must Monitor] --> B[Infrastructure]
-    A --> C[Application]
-    A --> D[Business]
-    
-    B --> E[CPU, Memory, Disk, Network]
-    C --> F[Response Time, Errors, Throughput]
-    D --> G[Conversions, Revenue, Users]
-```
+![Generated Mermaid Diagram 15](diagram_images/diagram_15.png)
 
 **The Three Layers:**
 

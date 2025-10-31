@@ -10,15 +10,7 @@ Let me break down what AES-256 actually means:
 
 **AES-256 = Advanced Encryption Standard with 256-bit keys**
 
-```mermaid
-graph LR
-    A[Your Data: Hello World] --> B[AES-256 Encryption]
-    B --> C[Key: 256-bit random]
-    C --> D[Encrypted: xK9#mP...]
-    D --> E[Stored on Disk]
-    
-    F[Only Right Key = Decrypt]
-```
+![Generated Mermaid Diagram 1](diagram_images/diagram_1.png)
 
 **Breaking Down the Numbers:**
 - **AES:** Advanced Encryption Standard - the algorithm itself
@@ -33,14 +25,7 @@ That number is so astronomically large, it's practically impossible to comprehen
 
 **In 1997, the US Government realized they needed a new encryption standard.** Here's how they found it:
 
-```mermaid
-graph TB
-    A[NIST Competition] --> B[15 Algorithms Submitted]
-    B --> C[5 Finalists]
-    C --> D[3 Years of Analysis]
-    D --> E[Winner: Rijndael]
-    E --> F[Renamed: AES]
-```
+![Generated Mermaid Diagram 2](diagram_images/diagram_2.png)
 
 **Why the Algorithm Called Rijndael Won:**
 - ✅ Incredibly fast performance
@@ -60,14 +45,7 @@ You might wonder - AES comes in 128-bit, 192-bit, and 256-bit versions. Why did 
 
 ### Comparing Key Sizes
 
-```mermaid
-graph LR
-    A[AES-128] --> B[2^128 combinations]
-    C[AES-192] --> D[2^192 combinations]
-    E[AES-256] --> F[2^256 combinations]
-    
-    F --> G[Most Secure!]
-```
+![Generated Mermaid Diagram 3](diagram_images/diagram_3.png)
 
 ### How Secure Are These Different Key Sizes?
 
@@ -87,18 +65,7 @@ Even AES-128 is incredibly secure - billions of years to crack! But AES-256? It 
 
 ### The Brute-Force Attack Scenario
 
-```mermaid
-graph TB
-    A[Assumptions] --> B[1 Billion GPUs]
-    B --> C[Each tries 1 Billion keys/second]
-    C --> D[Total: 10^18 keys/second]
-    
-    E[2^256 total keys] --> F[Time needed]
-    F --> G[3 × 10^51 years]
-    
-    H[Universe age: 13.8 billion years]
-    G -.-> I[Need 10^40 universes' worth of time!]
-```
+![Generated Mermaid Diagram 4](diagram_images/diagram_4.png)
 
 **Bottom Line:** Brute-forcing AES-256 is **mathematically impossible** with current and foreseeable technology. The universe would end before you could try all the keys!
 
@@ -106,14 +73,7 @@ graph TB
 
 Everyone worries about quantum computers breaking encryption. Let me address this:
 
-```mermaid
-graph LR
-    A[Quantum Computer] --> B[Grover's Algorithm]
-    B --> C[Reduces 2^256 to 2^128]
-    C --> D[Still Takes Billions of Years]
-    
-    E[AES-256 = Quantum Resistant]
-```
+![Generated Mermaid Diagram 5](diagram_images/diagram_5.png)
 
 **The Good News:** Even with quantum computers using Grover's algorithm (which reduces the effective security in half), AES-256 becomes effectively AES-128. And AES-128 STILL takes billions of years to crack!
 
@@ -125,14 +85,7 @@ Now let me explain the practical reasons why AWS, Azure, and Google Cloud all ch
 
 ### First: Hardware Acceleration Makes It Free
 
-```mermaid
-graph LR
-    A[Intel AES-NI] --> B[Hardware Instructions]
-    B --> C[Encrypt in CPU]
-    C --> D[10x Faster than Software]
-    
-    E[No Performance Penalty!]
-```
+![Generated Mermaid Diagram 6](diagram_images/diagram_6.png)
 
 **Performance Numbers:**
 - Software-based AES: 200 MB/s
@@ -150,16 +103,7 @@ With hardware acceleration, encryption is practically free! There's almost no pe
 
 AES-256 isn't just recommended - it's **required** by many regulations:
 
-```mermaid
-graph TB
-    A[AES-256 Required By] --> B[NIST FIPS 140-2]
-    A --> C[HIPAA: Healthcare]
-    A --> D[PCI-DSS: Payments]
-    A --> E[FedRAMP: Government]
-    A --> F[GDPR: EU Data]
-    
-    G[Can't operate without it!]
-```
+![Generated Mermaid Diagram 7](diagram_images/diagram_7.png)
 
 **Real-World Example:** Want to process credit card payments? PCI-DSS compliance **requires** AES-256 encryption. If you're a cloud provider, you MUST support it or you can't handle payment data!
 
@@ -169,14 +113,7 @@ Cloud providers can't operate without meeting these compliance requirements, so 
 
 AES has an incredible track record:
 
-```mermaid
-graph LR
-    A[2001: AES Adopted] --> B[2024: Still Unbroken]
-    B --> C[Billions of devices]
-    C --> D[No practical attacks]
-    
-    E[Gold Standard!]
-```
+![Generated Mermaid Diagram 8](diagram_images/diagram_8.png)
 
 **The Attack History:**
 - Some theoretical attacks exist that slightly reduce the key space
@@ -189,16 +126,7 @@ When the most secretive intelligence agency in the world trusts it for their mos
 
 With hardware acceleration, the performance impact is negligible:
 
-```mermaid
-graph TB
-    A[1GB Unencrypted Data] --> B[Write to Disk: 10ms]
-    
-    C[1GB AES-256 Encrypted] --> D[Encrypt: 0.5ms]
-    D --> E[Write to Disk: 10ms]
-    E --> F[Total: 10.5ms]
-    
-    G[<5% Performance Impact!]
-```
+![Generated Mermaid Diagram 9](diagram_images/diagram_9.png)
 
 **The Cloud Reality:** With modern AES-NI instructions, encryption adds less than 5% performance impact! For cloud providers storing petabytes of data, this is a no-brainer - maximum security with minimal cost.
 
@@ -208,16 +136,7 @@ Let me show you how this works in practice:
 
 ### AWS Implementation
 
-```mermaid
-graph TB
-    A[Your Data] --> B[S3 Bucket]
-    B --> C{Encryption Enabled?}
-    C -->|Yes| D[AES-256-GCM]
-    D --> E[Encrypted Data Keys]
-    E --> F[AWS KMS: Master Keys]
-    
-    G[Multi-Layer Encryption!]
-```
+![Generated Mermaid Diagram 10](diagram_images/diagram_10.png)
 
 **AWS Services Using AES-256:**
 - **S3:** Object storage - all your files
@@ -230,14 +149,7 @@ Everything is encrypted by default with AES-256!
 
 ### Azure and Google Cloud - Same Standard
 
-```mermaid
-graph LR
-    A[Customer Data] --> B[AES-256 Encryption]
-    B --> C[Encrypted at Rest]
-    C --> D[Key Management Service]
-    
-    E[Universal Standard!]
-```
+![Generated Mermaid Diagram 11](diagram_images/diagram_11.png)
 
 Every major cloud provider uses AES-256 as the universal standard! It's the one thing they all agree on.
 
@@ -302,13 +214,7 @@ Let me show you actual performance data from encrypting a large database backup:
 
 ### Storage Overhead - ZERO!
 
-```mermaid
-graph LR
-    A[1GB Original Data] --> B[AES-256 Encryption]
-    B --> C[1GB Encrypted Data]
-    
-    D[0% Size Increase!]
-```
+![Generated Mermaid Diagram 12](diagram_images/diagram_12.png)
 
 **AES doesn't increase your file size!** A 1GB file encrypted with AES-256 is still 1GB. No storage penalty!
 
@@ -316,14 +222,7 @@ graph LR
 
 Now, here's something critical - encryption is only as good as your key management!
 
-```mermaid
-graph TB
-    A[Data Encrypted with AES-256] --> B{Keys Secure?}
-    B -->|No| C[Encryption Useless!]
-    B -->|Yes| D[Data Protected]
-    
-    E[Key Management = Critical!]
-```
+![Generated Mermaid Diagram 13](diagram_images/diagram_13.png)
 
 Think about it - if someone steals your encryption keys, your AES-256 encryption is useless! The data might as well not be encrypted at all.
 
@@ -333,13 +232,7 @@ Think about it - if someone steals your encryption keys, your AES-256 encryption
 - **Google Cloud KMS**
 
 **How They Protect Keys:**
-```mermaid
-graph LR
-    A[Master Key] --> B[Encrypts Data Keys]
-    B --> C[Data Keys Encrypt Data]
-    
-    D[Two-Layer Protection]
-```
+![Generated Mermaid Diagram 14](diagram_images/diagram_14.png)
 
 This is called **envelope encryption** - two layers of protection! The master key encrypts the data keys, and the data keys encrypt your actual data. Even if someone gets the encrypted data, they can't decrypt it without both layers of keys.
 
@@ -347,15 +240,7 @@ This is called **envelope encryption** - two layers of protection! The master ke
 
 Everyone worries about quantum computers. Let me address this directly:
 
-```mermaid
-graph TB
-    A[Future Threat: Quantum Computers] --> B[AES-256]
-    B --> C{Vulnerable?}
-    C -->|No| D[Still Secure]
-    
-    E[Groves Algorithm: Reduces to 2^128]
-    E --> F[Still Impossible to Break]
-```
+![Generated Mermaid Diagram 15](diagram_images/diagram_15.png)
 
 **NIST's Official Recommendation:** AES-256 is quantum-resistant and will remain secure in the post-quantum era!
 
@@ -370,17 +255,7 @@ This future-proofing is another reason cloud providers love AES-256!
 
 Let me summarize why AES-256 has become the universal cloud standard:
 
-```mermaid
-graph TB
-    A[AES-256 Dominance] --> B[Hardware Accelerated]
-    A --> C[Mathematically Unbreakable]
-    A --> D[Compliance Required]
-    A --> E[Zero Performance Cost]
-    A --> F[Quantum Resistant]
-    A --> G[20+ Years Proven]
-    
-    H[Perfect Storm of Factors!]
-```
+![Generated Mermaid Diagram 16](diagram_images/diagram_16.png)
 
 ### The Perfect Encryption Algorithm
 
